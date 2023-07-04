@@ -5,12 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>index</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/project.css">
 </head>
 <body>
-<h1>Hello, World!</h1>
-<button type="button" class="btn btn-danger">버튼</button>
-<button type="button" class="btn btn-success">버튼</button>
-<button type="button" class="btn btn-dark">버튼</button>
+    <div class="container">
+        <header class="row">
+            <div class="col">
+                <h1 id="logo">Lorem Ipsum</h1>
+            </div>
+            <div class="col text-end">
+                <button type="button" class="btn btn-danger">로그인</button>
+                <button type="button" class="btn btn-primary">회원가입</button>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item"><a href="/intro" class="nav-link">프로젝트 소개</a></li>
+                <li class="nav-item"><a href="/join/agree" class="nav-link">회원가입</a></li>
+                <li class="nav-item"><a href="/board/list?cpg=1" class="nav-link">게시판</a></li>
+                <li class="nav-item"><a href="/pds/list?cpg=1" class="nav-link">자료실</a></li>
+                <li class="nav-item"><a href="/gallery/list?cpg=1" class="nav-link">갤러리</a></li>
+                <li class="nav-item"><a href="/admin" class="nav-link">관리자</a></li>
+            </ul>
+        </nav>
+
+
+        <footer>
+            <h6 class="col text-end bg-dark bg-opacity-10 p-3">Copyright &copy; Lorem Ipsum 2023. minha. All rights Reserved.
+            Created by Bootstrap5</h6>
+        </footer>
+    </div>
+
 
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
