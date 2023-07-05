@@ -102,7 +102,32 @@
                 </div>
                 <!-- mdb -->
                 <div class="modal-body">
-
+                    <form id="lgnfrm" name="lgnfrm">
+                        <!--userid-->
+                        <div class="row text-danger mb-3">
+                            <label class="col-4 col-form-label text-end" for="userid">아이디</label>
+                            <div class="col-5">
+                                <input type="text" id="userid" name="userid" class="form-control border-danger">
+                            </div>
+                        </div>
+                        <!--passwd-->
+                        <div class="row text-danger mb-3">
+                            <label class="col-4 col-form-label text-end" for="passwd">비밀번호</label>
+                            <div class="col-5">
+                                <input type="password" id="passwd" name="passwd" class="form-control border-danger">
+                            </div>
+                        </div>
+                        <!--auto login-->
+                        <div class="row text-warning">
+                            <label class="col-4">&nbsp;</label>
+                            <div class="col-5">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input border-dark">
+                                    <label class="form-check-label">로그인 상태 유지</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <!-- mdf -->
                 <div class="modal-footer justify-content-center">
