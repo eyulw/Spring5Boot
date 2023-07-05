@@ -1,144 +1,60 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>index</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/project.css">
-</head>
-<body>
-    <div class="container">
-        <header class="row">
-            <div class="col">
-                <h1 id="logo">Lorem Ipsum</h1>
+<html lang="ko" xmlns:th="https://thymeleaf.org"
+    xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div id="main">
+        <!-- title, image -->
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-1 text-center p-3">超機密 PROJECT 補完計劃</h1>
             </div>
-            <div class="col text-end">
-                <button type="button" class="btn btn-danger mt-2" data-bs-target="#loginfrm" data-bs-toggle="modal">로그인</button>
-                <button type="button" class="btn btn-primary mt-2">회원가입</button>
+            <div class="col-8 offset-2">
+                <img src="/assets/img/cute.jpg">
             </div>
-        </header>
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <ul class="navbar-nav nav-fill w-100">
-                <li class="nav-item"><a href="/intro" class="nav-link">프로젝트 소개</a></li>
-                <li class="nav-item"><a href="/join/agree" class="nav-link">회원가입</a></li>
-                <li class="nav-item"><a href="/board/list?cpg=1" class="nav-link">게시판</a></li>
-                <li class="nav-item"><a href="/pds/list?cpg=1" class="nav-link">자료실</a></li>
-                <li class="nav-item"><a href="/gallery/list?cpg=1" class="nav-link">갤러리</a></li>
-                <li class="nav-item"><a href="/admin" class="nav-link">관리자</a></li>
-            </ul>
-        </nav>
-        <div id="main">
-            <!-- title, image -->
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="display-1 text-center p-3">超機密 PROJECT 補完計劃</h1>
-                </div>
-                <div class="col-8 offset-2">
-                    <img src="/assets/img/cute.jpg">
-                </div>
-            </div>
-            <!-- hero -->
-            <div class="row">
-                <div class="col-8 offset-2 text-center p-3">
-                    <p>Nulla facilisi. In mi sapien, auctor luctus dolor imperdiet, egestas imperdiet metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in nisi a libero posuere congue consectetur in neque. Donec tincidunt bibendum augue lobortis faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi aliquet enim a efficitur placerat. In ut nulla vestibulum, fermentum libero vitae, rutrum augue. Phasellus nec ultricies lacus.</p>
-                    <div>
-                        <button type="button" class="btn btn-success">지금 바로 시작하기</button>
-                    </div>
-                </div>
-            </div>
-            <!-- article -->
-            <div class="row m-4">
-                <div class="col-4 my-4">
-                    <h2>極秘</h2>
-                    <p>Mauris facilisis libero nisl, eu suscipit neque consectetur ut. Mauris eleifend orci erat, vitae eleifend odio malesuada ac. Nam eget felis nec massa congue scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus facilisis nisi, sit amet cursus augue vulputate sed. Etiam suscipit felis lorem, in imperdiet sem hendrerit sed. Quisque luctus ante a luctus aliquet. Integer ut hendrerit velit.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
-                </div>
-                <div class="col-4 my-4">
-                    <h2>誤謬</h2>
-                    <p>Cras ut facilisis mi. Sed eleifend nisl eget dolor consectetur accumsan. Maecenas porta molestie massa, vitae rutrum augue tempus non. Pellentesque egestas est eget finibus suscipit. Curabitur vehicula enim ante. Cras convallis vel erat sed tempor. Nulla eu lacinia neque. Donec ut augue sit amet purus porta ultricies eu et sem.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
-                </div>
-                <div class="col-4 my-4">
-                    <h2>警告</h2>
-                    <p>Maecenas lacinia dignissim sapien, vel consectetur tortor hendrerit non. Nulla vel ipsum fermentum, vestibulum arcu sed, auctor ex. Sed ut orci augue. In pellentesque nisl eu ex pharetra dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam at risus sed risus congue vulputate. Mauris id finibus tortor, ac congue lacus. Aliquam erat volutpat. Nam in leo quam. Sed risus nisi, dignissim sit amet maximus in, commodo non arcu. Morbi auctor est efficitur fermentum imperdiet. Curabitur ac ligula faucibus, rutrum lorem et, posuere mi. Integer rutrum augue velit, sed hendrerit magna ornare vitae. Donec dignissim rutrum eros, eget tincidunt magna consequat sit amet.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
-                </div>
-                <div class="col-4 my-4">
-                    <h2>危險</h2>
-                    <p>Fusce eget viverra velit. Integer aliquet libero libero, eu accumsan ligula consequat eu. Integer vitae leo eget turpis efficitur dictum nec nec nibh. Suspendisse a urna eu massa interdum varius. Maecenas aliquam et mauris pretium tempor. Phasellus pharetra enim in enim elementum elementum. Aliquam tempus gravida turpis posuere placerat. Pellentesque et elementum magna. Maecenas maximus nisl nisi, non luctus dui viverra vitae. Aenean sit amet mauris lectus.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
-                </div>
-                <div class="col-4 my-4">
-                    <h2>隔離</h2>
-                    <p>Vivamus dictum sollicitudin diam. Quisque tortor sem, tristique venenatis bibendum congue, efficitur eu dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc facilisis lorem nunc, vitae imperdiet ex volutpat id. Vestibulum rhoncus massa sit amet urna dapibus tincidunt. Integer elementum commodo neque, et rhoncus sapien viverra in. Sed hendrerit odio nec felis suscipit, sit amet sagittis dui vulputate. Nam eu gravida lacus. Vestibulum luctus pretium risus in pulvinar. Vivamus a enim ut massa eleifend aliquam.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
-                </div>
-                <div class="col-4 my-4">
-                    <h2>制限</h2>
-                    <p>Maecenas tincidunt auctor blandit. Aenean mattis libero sit amet maximus tincidunt. In eget tellus in leo venenatis pharetra. Suspendisse consectetur nibh sed nisl pharetra sagittis. Nullam est enim, eleifend eget fringilla ac, laoreet sed orci. Nulla aliquet fermentum pellentesque. Quisque ut vulputate tellus, vel blandit nulla. Pellentesque tincidunt convallis enim in bibendum. Nam congue auctor ex non posuere. Morbi sodales lobortis orci. Nam dignissim lorem lorem, non porta lorem imperdiet ut. Donec id lectus justo.</p>
-                    <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+        </div>
+        <!-- hero -->
+        <div class="row">
+            <div class="col-8 offset-2 text-center p-3">
+                <p>Nulla facilisi. In mi sapien, auctor luctus dolor imperdiet, egestas imperdiet metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in nisi a libero posuere congue consectetur in neque. Donec tincidunt bibendum augue lobortis faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi aliquet enim a efficitur placerat. In ut nulla vestibulum, fermentum libero vitae, rutrum augue. Phasellus nec ultricies lacus.</p>
+                <div>
+                    <button type="button" class="btn btn-success">지금 바로 시작하기</button>
                 </div>
             </div>
         </div>
-
-
-        <footer>
-            <h6 class="col text-end bg-dark bg-opacity-10 p-3">Copyright &copy; Lorem Ipsum 2023. minha. All rights Reserved.
-            Created by Bootstrap5</h6>
-        </footer>
-    </div>
-
-    <!-- login modal -->
-    <div class="modal" id="loginfrm" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
-        <!-- mdd -->
-        <div class="modal-dialog">
-            <!-- mdc -->
-            <div class="modal-content">
-                <!-- mdh -->
-                <div class="modal-header">
-                    <h2>로그인</h2>
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">닫기</button>
-                </div>
-                <!-- mdb -->
-                <div class="modal-body">
-                    <form id="lgnfrm" name="lgnfrm">
-                        <!--userid-->
-                        <div class="row text-danger mb-3">
-                            <label class="col-4 col-form-label text-end" for="userid">아이디</label>
-                            <div class="col-5">
-                                <input type="text" id="userid" name="userid" class="form-control border-danger">
-                            </div>
-                        </div>
-                        <!--passwd-->
-                        <div class="row text-danger mb-3">
-                            <label class="col-4 col-form-label text-end" for="passwd">비밀번호</label>
-                            <div class="col-5">
-                                <input type="password" id="passwd" name="passwd" class="form-control border-danger">
-                            </div>
-                        </div>
-                        <!--auto login-->
-                        <div class="row text-warning">
-                            <label class="col-4">&nbsp;</label>
-                            <div class="col-5">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input border-dark">
-                                    <label class="form-check-label">로그인 상태 유지</label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- mdf -->
-                <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-danger" id="loginbtn">로그인</button>
-                        <button type="button" class="btn btn-warning">아이디/비밀번호 찾기</button>
-                </div>
+        <!-- article -->
+        <div class="row m-4">
+            <div class="col-4 my-4">
+                <h2>極秘</h2>
+                <p>Mauris facilisis libero nisl, eu suscipit neque consectetur ut. Mauris eleifend orci erat, vitae eleifend odio malesuada ac. Nam eget felis nec massa congue scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus facilisis nisi, sit amet cursus augue vulputate sed. Etiam suscipit felis lorem, in imperdiet sem hendrerit sed. Quisque luctus ante a luctus aliquet. Integer ut hendrerit velit.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+            </div>
+            <div class="col-4 my-4">
+                <h2>誤謬</h2>
+                <p>Cras ut facilisis mi. Sed eleifend nisl eget dolor consectetur accumsan. Maecenas porta molestie massa, vitae rutrum augue tempus non. Pellentesque egestas est eget finibus suscipit. Curabitur vehicula enim ante. Cras convallis vel erat sed tempor. Nulla eu lacinia neque. Donec ut augue sit amet purus porta ultricies eu et sem.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+            </div>
+            <div class="col-4 my-4">
+                <h2>警告</h2>
+                <p>Maecenas lacinia dignissim sapien, vel consectetur tortor hendrerit non. Nulla vel ipsum fermentum, vestibulum arcu sed, auctor ex. Sed ut orci augue. In pellentesque nisl eu ex pharetra dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam at risus sed risus congue vulputate. Mauris id finibus tortor, ac congue lacus. Aliquam erat volutpat. Nam in leo quam. Sed risus nisi, dignissim sit amet maximus in, commodo non arcu. Morbi auctor est efficitur fermentum imperdiet. Curabitur ac ligula faucibus, rutrum lorem et, posuere mi. Integer rutrum augue velit, sed hendrerit magna ornare vitae. Donec dignissim rutrum eros, eget tincidunt magna consequat sit amet.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+            </div>
+            <div class="col-4 my-4">
+                <h2>危險</h2>
+                <p>Fusce eget viverra velit. Integer aliquet libero libero, eu accumsan ligula consequat eu. Integer vitae leo eget turpis efficitur dictum nec nec nibh. Suspendisse a urna eu massa interdum varius. Maecenas aliquam et mauris pretium tempor. Phasellus pharetra enim in enim elementum elementum. Aliquam tempus gravida turpis posuere placerat. Pellentesque et elementum magna. Maecenas maximus nisl nisi, non luctus dui viverra vitae. Aenean sit amet mauris lectus.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+            </div>
+            <div class="col-4 my-4">
+                <h2>隔離</h2>
+                <p>Vivamus dictum sollicitudin diam. Quisque tortor sem, tristique venenatis bibendum congue, efficitur eu dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc facilisis lorem nunc, vitae imperdiet ex volutpat id. Vestibulum rhoncus massa sit amet urna dapibus tincidunt. Integer elementum commodo neque, et rhoncus sapien viverra in. Sed hendrerit odio nec felis suscipit, sit amet sagittis dui vulputate. Nam eu gravida lacus. Vestibulum luctus pretium risus in pulvinar. Vivamus a enim ut massa eleifend aliquam.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
+            </div>
+            <div class="col-4 my-4">
+                <h2>制限</h2>
+                <p>Maecenas tincidunt auctor blandit. Aenean mattis libero sit amet maximus tincidunt. In eget tellus in leo venenatis pharetra. Suspendisse consectetur nibh sed nisl pharetra sagittis. Nullam est enim, eleifend eget fringilla ac, laoreet sed orci. Nulla aliquet fermentum pellentesque. Quisque ut vulputate tellus, vel blandit nulla. Pellentesque tincidunt convallis enim in bibendum. Nam congue auctor ex non posuere. Morbi sodales lobortis orci. Nam dignissim lorem lorem, non porta lorem imperdiet ut. Donec id lectus justo.</p>
+                <div><button type="button" class="btn btn-light">자세히 보기 &blacktriangleright;</button></div>
             </div>
         </div>
     </div>
-
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/project.js"></script>
-</body>
+</th:block>
 </html>
