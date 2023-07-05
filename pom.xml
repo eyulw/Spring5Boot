@@ -58,6 +58,14 @@
             <version>2.3.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- thymeleaf layout -->
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
