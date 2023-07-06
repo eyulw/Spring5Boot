@@ -31,10 +31,8 @@ checkbtn2?.addEventListener('click',()=>{
     }else if(!checkfrm.infoagree.checked){
         alert("주민등록번호 처리 동의를 체크하세요");
     }else{
-        let params='?name'+checkfrm.name2.value;
-        params+='&jumin1='+checkfrm.jumin1.value;
-        params+='&jumin2='+checkfrm.jumin2.value;
-        location.href="/join/joinme"+params;
+        checkfrm.method='post';
+        checkfrm.submit();
     }
 });
 
