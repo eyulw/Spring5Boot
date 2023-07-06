@@ -17,4 +17,28 @@ noagree?.addEventListener('click',()=>{
     location.href="/";
 });
 
+/* checkme */
+let checkbtn2 = document.querySelector("#checkbtn2");
+let cancelbtn2=document.querySelector("#cancelbtn2");
+let checkfrm=document.forms.checkfrm2;
+checkbtn2?.addEventListener('click',()=>{
+    if(checkfrm.name2.value===''){
+        alert("이름을 입력하세요");
+    }else if(checkfrm.jumin1.value===''){
+        alert("주민등록번호 앞자리를 입력하세요");
+    }else if(checkfrm.jumin2.value===''){
+        alert("주민등록번호 뒷자리를 입력하세요");
+    }else if(!checkfrm.infoagree.checked){
+        alert("주민등록번호 처리 동의를 체크하세요");
+    }else{
+        let params='?name'+checkfrm.name2.value;
+        params+='&jumin1='+checkfrm.jumin1.value;
+        params+='&jumin2='+checkfrm.jumin2.value;
+        location.href="/join/joinme"+params;
+    }
+});
+
+cancelbtn2?.addEventListener('click',()=>{
+   location.href="/";
+});
 
