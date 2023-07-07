@@ -11,7 +11,10 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @MybatisTest
@@ -31,4 +34,11 @@ public class MemberDAOUnitTest {
         assertEquals(result,1);
     }
 
+    @Test
+    @DisplayName("MemberDAO select Test")
+    void selectMember(){
+        List<Member> results = mdao.selectMember();
+        assertNotNull(results);
+        System.out.println(results);
+    }
 }
