@@ -2,6 +2,7 @@ package minha.hello.boot.spring5boot.dao;
 
 import lombok.RequiredArgsConstructor;
 import minha.hello.boot.spring5boot.model.Member;
+import minha.hello.boot.spring5boot.model.Zipcode;
 import minha.hello.boot.spring5boot.mybatis.MemberMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class MemberDAOImpl implements MemberDAO{
     public List<Member> selectMember() {
 //        return sqlSession.selectList("minha.hello.boot.spring5boot.mybatis.MemberMapper.selectMember");
         return memberMapper.selectMember();
+    }
+
+    @Override
+    public List<Zipcode> selectzip(String dong) {
+        return memberMapper.findZipcode(dong);
     }
 }
