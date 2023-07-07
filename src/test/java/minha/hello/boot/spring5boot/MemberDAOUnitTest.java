@@ -5,7 +5,6 @@ import minha.hello.boot.spring5boot.dao.MemberDAOImpl;
 import minha.hello.boot.spring5boot.model.Member;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -14,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
+
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import(MemberDAOImpl.class)
@@ -24,8 +23,7 @@ public class MemberDAOUnitTest {
     private MemberDAO mdao;
 
     @Test
-    /*테스트명 지정가능*/
-    @DisplayName("MemberDAO insert Test")
+    @DisplayName("MemberDAO insert Test")    /*테스트명 지정가능*/
     void insertMember(){
         Member m = new Member(null,"","","","","","","","",null);
         int result = mdao.insertMember(m);
