@@ -12,6 +12,7 @@ public class Member {
     private String userid;
     private String passwd;
     private String name;
+    private String jumin;
     private String email;
     private String zipcode;
     private String addr1;
