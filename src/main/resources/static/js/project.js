@@ -42,13 +42,13 @@ cancelbtn2?.addEventListener('click',()=>{
 
 //joinme
 
-let fzipbtn = document.querySelector("#findzipbtn");
-let zipbtn =document.querySelector("#zipbtn");
-let dong = document.querySelector("#dong")
-let zipmodal =document.querySelector("#zipmodal");
+let fzipbtn = document.querySelector("#findzipbtn");    //모달 검색하기버튼
+let zipbtn =document.querySelector("#zipbtn");  //우편번호찾기 버튼
+let dong = document.querySelector("#dong")  //모달 검색창id = dong
+let zipmodal =document.querySelector("#zipmodal");  //모달 전체
 
-let addrlist =document.querySelector("#addrlist");
-let sendzip =document.querySelector("#sendzip");
+let addrlist =document.querySelector("#addrlist");  //모달 주소창
+let sendzip =document.querySelector("#sendzip");    //모달 선택하고 닫기버튼
 let modal = null;   //우편번호 모달
 
 let email3 =document.querySelector("#email3");
@@ -160,3 +160,35 @@ userid?.addEventListener('blur',()=>{
     fetch(url).then(response=>response.text())
         .then(text=>checkUserid(text))
 })
+
+//회원정보 저장
+let joinbtn=document.querySelector("#joinbtn1");
+let joinfrm=document.forms.joinfrm1;
+joinbtn?.addEventListener('click',()=>{
+    if(joinfrm.userid.value===''){
+        alert("아이디를 입력하세요");
+    }else if(joinfrm.passwd.value===''){
+        alert("비밀번호를 입력하세요");
+    }else if(joinfrm.repasswd.value===''){
+        alert("비밀번호 확인을 입력하세요");
+    }else if(joinfrm.zip1.value===''||joinfrm.zip2.value===''){
+        alert("우편번호를 입력하세요");
+    }else if(joinfrm.addr1.value===''||joinfrm.addr2.value===''){
+        alert("우편번호를 입력하세요");
+    }else if(joinfrm.email1.value===''||joinfrm.email2.value===''){
+        alert("이메일을 입력하세요");
+    }else if(joinfrm.phone1.value==='국번'||joinfrm.phone2.value===''||joinfrm.phone3.value===''){
+        alert("번호를 입력하세요");
+    }else if(grecaptcha.getResponse() === ''){
+        alert("자동가입방지를 체크하세요");
+    }else if(checkuid.value === 'no'){
+        alert("아이디 중복검사를 하세요");
+    }else{
+        joinfrm.jumin.value = joinfrm.jumin1.value +"-"+ joinfrm.jumin1.value;
+        joinfrm.zipcode.value = joinfrm.zip1.value+"-"+joinfrm.zip2.value;
+        joinfrm.email.value = joinfrm.email1.value+"@"+joinfrm.email2.value;
+        joinfrm.phone.value = joinfrm.phone1.value+"-"+joinfrm.phone2.value+'-'+joinfrm.phone3.value;
+        joinfrm.method='post';
+        joinfrm.submit();
+    }
+});
