@@ -40,3 +40,26 @@ cancelbtn2?.addEventListener('click',()=>{
    location.href="/";
 });
 
+//joinme
+
+let zipbtn = document.querySelector("#findzipbtn");
+let dong = document.querySelector("#dong")
+let addrlist =document.querySelector("#addrlist");
+const showzipaddr = (jsons) => {
+    jsons = JSON.parse(jsons);  //문자열을 json객체로 변환
+    let addr = '';
+    jsons.forEach(function (data,idx){  //json 반복처리
+        addr+=`<option>${data['zipcode']} ${data['sido']} ${data['gugun']}
+                ${data['dong']} ${data['bunji']}</option>`;
+    });
+    addrlist.innerHTML = addr;
+};
+zipbtn?.addEventListener('click',()=>{
+    if(dong.value===''){
+        alert('동이름을 입력하세요!');
+        return;
+    }
+    const url='/join/zipcode?dong='+dong.value;
+    fetch(url).then(response=>response.text())
+        .then(text=>showzipaddr(text));
+})
