@@ -56,4 +56,9 @@ public class MemberServiceImpl implements MemberService{
         json=mapper.writeValueAsString(mdao.selectzip(dong));
         return json;
     }
+
+    @Override
+    public int checkuid(String uid) {
+        return mdao.selectOneUserid(uid);
+    }
 }
