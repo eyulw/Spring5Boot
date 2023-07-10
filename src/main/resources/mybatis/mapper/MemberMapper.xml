@@ -13,4 +13,7 @@
     <select id="findZipcode" resultType="Zipcode">
         select * from zipcode2013 where dong like #{dong}
     </select>
+    <select id="selectOneUserid" resultType="Integer">
+        select count(userid) cnt from member2 where userid=#{uid}
+    </select>
 </mapper>
