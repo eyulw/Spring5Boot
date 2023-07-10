@@ -51,6 +51,8 @@ let addrlist =document.querySelector("#addrlist");
 let sendzip =document.querySelector("#sendzip");
 let modal = null;   //우편번호 모달
 
+let email3 =document.querySelector("#email3");
+
 zipbtn?.addEventListener('click',()=>{
     while(addrlist.lastChild){      //addrlist에 마지막 자식이 있는지 확인
         addrlist.removeChild(addrlist.lastChild);
@@ -99,3 +101,14 @@ sendzip?.addEventListener('click',()=>{
         alert("주소를 선택하세요!");
     }
 });
+
+email3?.addEventListener('click',()=>{
+    let frm = document.forms.joinfrm1;
+    if(email3.value === '직접입력하기') {
+        frm.email2.readOnly = false;
+        frm.email2.value = "";
+    }else if(email3.value!=='선택하세요'){
+        frm.email2.readOnly = true;
+        frm.email2.value = email3.value;
+    }
+})
