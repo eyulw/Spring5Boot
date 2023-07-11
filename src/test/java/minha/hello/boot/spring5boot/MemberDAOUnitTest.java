@@ -28,7 +28,7 @@ public class MemberDAOUnitTest {
     @Test
     @DisplayName("MemberDAO insert Test")    /*테스트명 지정가능*/
     void insertMember(){
-        Member m = new Member(null,"","","","","","","","",null);
+        Member m = new Member(null,"","","","","","","","","",null);
         int result = mdao.insertMember(m);
         System.out.println(result);
         assertEquals(result,1);
@@ -49,5 +49,16 @@ public class MemberDAOUnitTest {
         int result=mdao.selectOneUserid(uid);
         System.out.println(result);
         assertEquals(result,1);
+    }
+
+    @Test
+    @DisplayName("MemberDAO selectOneMember Test")
+    void selectOneMember(){
+        Member m=new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+        Member result = mdao.selectOneMember(m);
+        assertNotNull(result);
+        System.out.println(result);
     }
 }
