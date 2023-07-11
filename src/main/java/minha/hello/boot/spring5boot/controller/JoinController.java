@@ -95,4 +95,17 @@ public class JoinController {
         logger.info("join/joinok 호출");
         return "join/joinok";
     }
+
+    //로그인 처리
+    @PostMapping("/login")
+    public String login(Member m, HttpSession sess){
+        logger.info("login 호출");
+        String returnPage="redirect:/loginfail";
+        m = msrv.readOneMember(m);
+        if(m!=null){
+            sess.setAttribute("member",m);
+            returnPage="redirect:/";
+        }
+        return returnPage;
+    }
 }
