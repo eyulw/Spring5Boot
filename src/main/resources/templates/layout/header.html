@@ -9,7 +9,7 @@
         <th:block th:if="${not #strings.startsWith(#request.getRequestURI(),'/join')}">
           <th:block th:if="${#strings.isEmpty(session.member)}">
             <button type="button" class="btn btn-danger mt-2" data-bs-target="#loginfrm" data-bs-toggle="modal">로그인</button>
-            <button type="button" class="btn btn-primary mt-2">회원가입</button>
+            <button type="button" class="btn btn-primary mt-2" id="joinBtn">회원가입</button>
           </th:block>
           <th:block th:if="${not #strings.isEmpty(session.member)}">
             <button type="button" class="btn btn-dark mt-2" id="lgoutbtn">로그아웃</button>
@@ -22,12 +22,7 @@
       <ul class="navbar-nav nav-fill w-100">
         <li class="nav-item"><a href="/intro" class="nav-link">프로젝트 소개</a></li>
         <li class="nav-item">
-        <th:block th:if="${#strings.isEmpty(session.member)}">
-          <a href="/join/agree" class="nav-link">회원가입</a>
-        </th:block>
-        <th:block th:if="${not #strings.isEmpty(session.member)}">
-          <a href="/join/agree" class="nav-link disabled">회원가입</a>
-        </th:block>
+          <a href="/join/agree" th:class="(${#strings.isEmpty(session.member)})? 'nav-link': 'nav-link disabled'">회원가입</a>
         </li>
         <li class="nav-item"><a href="/board/list?cpg=1" class="nav-link">게시판</a></li>
         <li class="nav-item"><a href="/pds/list?cpg=1" class="nav-link">자료실</a></li>
