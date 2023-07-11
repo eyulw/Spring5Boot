@@ -23,18 +23,28 @@ public class MemberMapperUnitTest {
     @Test
     @DisplayName("MemberMapper insert Test")    /*테스트명 지정가능*/
     void insertMember(){
-        Member m = new Member(null,"","","","","","","","",null);
+        Member m = new Member(null,"","","","","","","","","",null);
         int result = memberMapper.insertMember(m);
         System.out.println(result);
         assertEquals(result,1);
     }
 
     @Test
-    @DisplayName("MemberDAO select Test")
+    @DisplayName("MemberMapper select Test")
     void selectMember(){
         List<Member> results = memberMapper.selectMember();
         assertNotNull(results);
         System.out.println(results);
+    }
+    @Test
+    @DisplayName("MemberMapper selectOneMember Test")
+    void selectOneMember(){
+        Member m=new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+        Member result = memberMapper.selectOneMember(m);
+        assertNotNull(result);
+        System.out.println(result);
     }
 
 }
