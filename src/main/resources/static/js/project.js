@@ -230,3 +230,8 @@ let lgoutbtn = document.querySelector("#lgoutbtn");
 lgoutbtn?.addEventListener('click',()=>{
     location.href='/join/logout';
 })
+
+let joinBtn=document.querySelector("#joinBtn");
+joinBtn?.addEventListener('click',()=>{
+    location.href="/join/agree";
+})
