@@ -45,8 +45,10 @@ public class JoinController {
 
 
     @GetMapping("/joinme")
-    public String joinme(){
+    public String joinme(HttpSession sess){
         logger.info("join/joinme 호출");
+        if(sess.getAttribute("checkme")==null)
+            return "redirect:/join/agree";
         return "join/joinme";
     }
 
