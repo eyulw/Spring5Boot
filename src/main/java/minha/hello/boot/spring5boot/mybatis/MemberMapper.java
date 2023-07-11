@@ -11,4 +11,5 @@ public interface MemberMapper {
     List<Member> selectMember();
     List<Zipcode> findZipcode(String dong);
     int selectOneUserid(String uid);
+    Member selectOneMember(Member m);
 }

@@ -16,4 +16,7 @@
     <select id="selectOneUserid" resultType="Integer">
         select count(userid) cnt from member2 where userid=#{uid}
     </select>
+    <select id="selectOneMember" resultType="Member">
+        select userid, name, email, regdate from member2 where userid=#{userid} and passwd=#{passwd}
+    </select>
 </mapper>
