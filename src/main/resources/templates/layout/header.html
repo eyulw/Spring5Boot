@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://thymeleaf.org">
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
   <th:block th:fragment="header">
     <header class="row">
       <div class="col">
         <h1 id="logo">Lorem Ipsum</h1>
       </div>
       <div class="col text-end">
-        <th:block th:if="${#strings.isEmpty(session.member)}">
-          <button type="button" class="btn btn-danger mt-2" data-bs-target="#loginfrm" data-bs-toggle="modal">로그인</button>
-          <button type="button" class="btn btn-primary mt-2">회원가입</button>
-        </th:block>
-        <th:block th:if="${not #strings.isEmpty(session.member)}">
-          <button type="button" class="btn btn-dark mt-2" id="lgoutbtn">로그아웃</button>
-          <button type="button" class="btn btn-success mt-2">회원정보</button>
+        <th:block th:if="${not #strings.startsWith(#request.getRequestURI(),'/join')}">
+          <th:block th:if="${#strings.isEmpty(session.member)}">
+            <button type="button" class="btn btn-danger mt-2" data-bs-target="#loginfrm" data-bs-toggle="modal">로그인</button>
+            <button type="button" class="btn btn-primary mt-2">회원가입</button>
+          </th:block>
+          <th:block th:if="${not #strings.isEmpty(session.member)}">
+            <button type="button" class="btn btn-dark mt-2" id="lgoutbtn">로그아웃</button>
+            <button type="button" class="btn btn-success mt-2">회원정보</button>
+          </th:block>
         </th:block>
       </div>
     </header>
