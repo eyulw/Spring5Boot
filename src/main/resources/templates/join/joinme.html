@@ -51,13 +51,13 @@
                                <input type="text" name="jumin1" id="jumin1" class="form-control border-danger bg-light" readonly th:value="${session.checkme.jumin1}">
                            </div>
                            <div class="col-3">
-                               <input type="password" name="jumin2" id="jumin2" class="form-control border-danger bg-light" readonly th:value="${session.checkme.jumin2}">
+                               <input type="text" name="jumin2" id="jumin2" class="form-control border-danger bg-light" readonly th:value="${session.checkme.jumin2}">
                            </div>
                        </div><!--주민번호-->
                         <div class="row mb-3 align-items-center">
-                            <label for="userid" class="col-2 col-form-label text-danger text-end">아이디</label>
+                            <label for="uid" class="col-2 col-form-label text-danger text-end">아이디</label>
                             <div class="col-3">
-                                <input type="text" name="userid" id="userid" class="form-control border-danger">
+                                <input type="text" name="userid" id="uid" class="form-control border-danger">
                             </div>
                             <div class="col-auto">
                                 <span id="uidmsg" class="text-warning">
@@ -66,9 +66,9 @@
                             </div>
                         </div><!-- 아이디 -->
                         <div class="row mb-3 align-items-center">
-                            <label for="passwd" class="col-2 col-form-label text-danger text-end">비밀번호</label>
+                            <label for="pwd" class="col-2 col-form-label text-danger text-end">비밀번호</label>
                             <div class="col-3">
-                                <input type="password" name="passwd" id="passwd" class="form-control border-danger">
+                                <input type="password" name="passwd" id="pwd" class="form-control border-danger">
                             </div>
                             <div class="col-auto">
                                 <span  id="pwdmsg" class="text-warning">
@@ -96,7 +96,7 @@
                                 <input type="text" name="zip2" id="zip2" class="form-control border-danger bg-light" readonly>
                             </div>
                             <div class="col-3">
-                                <button type="button" id="zipbtn" class="btn btn-dark" data-bs-target="#zipmodal" data-bs-toggle="modal">
+                                <button type="button" id="zipbtn" class="btn btn-dark" >
                                     <i class="fa fa-circle-question"></i>
                                     우편번호 찾기</button>
                             </div>
@@ -114,9 +114,9 @@
                             <label for="email1" class="col-2 col-form-label text-danger text-end">전자우편 주소</label>
                             <div class="col-5">
                                 <div class="input-group">
-                                    <input id="email1" type="text" class="form-control border-danger" >
+                                    <input name="email1" id="email1" type="text" class="form-control border-danger" >
                                     <span class="input-group-text border-danger text-danger bg-danger bg-opacity-10">@</span>
-                                    <input id="email2" type="text" class="form-control border-danger bg-light" readonly>
+                                    <input name="email2" id="email2" type="text" class="form-control border-danger bg-light" readonly>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -160,7 +160,7 @@
                                 <i class="fa-regular fa-circle-check"></i>
                                 입력완료
                             </button>
-                            <button type="button" id="cancelbtn" class="btn btn-danger">
+                            <button type="reset" id="cancelbtn" class="btn btn-danger">
                                 <i class="fa-regular fa-circle-xmark"></i>
                                 입력취소
                             </button>
@@ -204,21 +204,6 @@
                                     <div class="row">
                                         <div class="col-8 offset-2">
                                             <select class="form-select" id="addrlist" name="addrlist" size="10">
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
-                                            <option>서울시 관악구 남부순환로 1820</option>
                                         </select>
                                         </div>
                                     </div><!--show zip-->
