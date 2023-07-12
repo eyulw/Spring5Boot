@@ -56,13 +56,13 @@
                             <th>999</th>
                             <th>1234</th>
                         </tr>
-                        <tr>
-                            <td>공지</td>
-                            <td>시간은 금이다!!</td>
-                            <td>운영자</td>
-                            <td>2023-05-01</td>
-                            <td>999</td>
-                            <td>1234</td>
+                        <tr th:each="bd:${bds}">
+                            <td th:text="${bd.bno}"></td>
+                            <td th:text="${bd.title}"></td>
+                            <td th:text="${bd.userid}"></td>
+                            <td th:text="${#strings.substring(bd.regdate,0,10)}"></td>
+                            <td th:text="${bd.thumbs}"></td>
+                            <td th:text="${bd.views}"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,24 +71,16 @@
         <div class="row">
             <div class="offset-1 col-10">
                 <nav>
-                    <ul class="pagination">
-                        <li class="page-item"><a href="#" class="page-link">처음</a></li>
+                    <ul class="pagination" th:with="start = ${psnum}, end = ${psnum+9}">
+                        <li class="page-item"><a th:href="@{/board/list?cpg=1}" class="page-link">처음</a></li>
                         <li class="page-item"><a href="#" class="page-link">이전</a></li>
-
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
                         <li class="page-item"><a href="#" class="page-link">4</a></li>
                         <li class="page-item active"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">6</a></li>
-                        <li class="page-item"><a href="#" class="page-link">7</a></li>
-                        <li class="page-item"><a href="#" class="page-link">8</a></li>
-                        <li class="page-item"><a href="#" class="page-link">9</a></li>
-                        <li class="page-item"><a href="#" class="page-link">10</a></li>
-
                         <li class="page-item"><a href="#" class="page-link">다음</a></li>
-                        <li class="page-item"><a href="#" class="page-link">끝</a></li>
+                        <li class="page-item"><a th:href="@{/board/list(cpg=${allpg})}" class="page-link">끝</a></li>
+
                     </ul>
+
                 </nav>
             </div>
         </div><!--게시판 페이지네이션-->
