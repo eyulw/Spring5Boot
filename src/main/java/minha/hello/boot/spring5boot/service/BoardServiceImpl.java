@@ -23,7 +23,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<Board> readBoard(int cpg) {
+    public List<Board> readBoard(Integer cpg) {
         int stnum=25*(cpg-1);
         return bdao.selectBoard(stnum);
     }
