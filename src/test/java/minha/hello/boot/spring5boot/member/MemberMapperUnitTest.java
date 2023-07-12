@@ -1,4 +1,4 @@
-package minha.hello.boot.spring5boot;
+package minha.hello.boot.spring5boot.member;
 
 import minha.hello.boot.spring5boot.model.Member;
 import minha.hello.boot.spring5boot.mybatis.MemberMapper;

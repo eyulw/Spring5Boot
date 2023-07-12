@@ -1,4 +1,4 @@
-package minha.hello.boot.spring5boot;
+package minha.hello.boot.spring5boot.member;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

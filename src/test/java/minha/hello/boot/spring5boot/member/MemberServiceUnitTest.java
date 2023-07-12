@@ -1,4 +1,4 @@
-package minha.hello.boot.spring5boot;
+package minha.hello.boot.spring5boot.member;
 
 import minha.hello.boot.spring5boot.dao.MemberDAOImpl;
 import minha.hello.boot.spring5boot.model.Member;

@@ -1,4 +1,4 @@
-package minha.hello.boot.spring5boot;
+package minha.hello.boot.spring5boot.member;
 
 import minha.hello.boot.spring5boot.dao.MemberDAO;
 import minha.hello.boot.spring5boot.dao.MemberDAOImpl;
@@ -9,7 +9,6 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
