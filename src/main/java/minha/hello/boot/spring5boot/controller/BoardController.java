@@ -17,7 +17,7 @@ public class BoardController {
     Logger logger = LogManager.getLogger(BoardController.class);
     final BoardService bsrv;
     @GetMapping("/list")
-    public String list(Model m,int cpg){
+    public String list(Model m, Integer cpg){
         m.addAttribute("bds",bsrv.readBoard(cpg));
         m.addAttribute("psnum",10*((cpg-1)/10)+1);
         m.addAttribute("allpg",bsrv.getCountPages());
