@@ -1,14 +1,15 @@
 package minha.hello.boot.spring5boot.controller;
 
 import lombok.RequiredArgsConstructor;
+import minha.hello.boot.spring5boot.model.Board;
 import minha.hello.boot.spring5boot.service.BoardService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/board")
@@ -33,4 +34,29 @@ public class BoardController {
         logger.info("board/view 호출");
         return "board/view";
     }
+
+    @GetMapping("/write")
+    public String write(){
+        logger.info("board/write 호출");
+        return "board/write";
+    }
+
+    @PostMapping("/write")
+    public String writeok(Board b){
+        logger.info("board/writeok 호출");
+        String returnPage="redirect:/board/fail";
+        if(bsrv.saveBoard(b))
+            returnPage="redirect:/board/list/1";
+        return returnPage;
+    }
+
+    @PostMapping("/delete/{bno}")
+    public String delete(@PathVariable String bno){
+        logger.info("board/delete 호출");
+        String returnPage="redirect:/board/fail";
+        if(bsrv.removeBoard(bno))
+            returnPage="redirect:/board/list/1";
+        return returnPage;
+    }
+
 }
