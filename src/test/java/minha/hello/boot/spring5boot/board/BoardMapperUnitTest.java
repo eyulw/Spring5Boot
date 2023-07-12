@@ -46,7 +46,7 @@ public class BoardMapperUnitTest {
     }
 
     @Test
-    @DisplayName("BoardMapper selectOneBoard Test")
+    @DisplayName("BoardMapper selectOne Test")
     void selectOneBoard(){
         String bno="1000";
         Board result = boardMapper.selectOneBoard(bno);
