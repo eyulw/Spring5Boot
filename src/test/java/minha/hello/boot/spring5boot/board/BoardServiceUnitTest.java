@@ -75,4 +75,15 @@ public class BoardServiceUnitTest {
         assertNotNull(result);
         System.out.println(result);
     }
+
+    @Test
+    @DisplayName("BoardService findBoard Test")
+    void findBoard(){
+        String ftype="title";
+        String fkey="아";
+        int cpg=1;
+        List<Board> results = bsrv.readFindBoard(cpg,ftype,fkey);
+        assertNotNull(results);
+        System.out.println(results);
+    }
 }
