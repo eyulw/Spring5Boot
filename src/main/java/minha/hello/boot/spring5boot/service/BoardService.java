@@ -10,5 +10,5 @@ public interface BoardService {
     Board readOneBoard(String bno);
     int getCountPages();
     boolean removeBoard(String bno);
-
+    List<Board> readFindBoard(Integer cpg,String ftype,String fkey);
 }
