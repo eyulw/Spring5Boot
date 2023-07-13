@@ -37,4 +37,12 @@ public class BoardServiceImpl implements BoardService{
     public int getCountPages() {
         return bdao.countPages();
     }
+
+    @Override
+    public boolean removeBoard(String bno) {
+        boolean isDeleted = false;
+        if(bdao.deleteBoard(bno)>0)
+            isDeleted=true;
+        return isDeleted;
+    }
 }
