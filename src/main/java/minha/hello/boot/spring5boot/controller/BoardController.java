@@ -50,7 +50,7 @@ public class BoardController {
         return returnPage;
     }
 
-    @PostMapping("/delete/{bno}")
+    @GetMapping("/delete/{bno}")
     public String delete(@PathVariable String bno){
         logger.info("board/delete 호출");
         String returnPage="redirect:/board/fail";
