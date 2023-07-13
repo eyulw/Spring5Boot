@@ -29,7 +29,7 @@ public class BoardMapperUnitTest {
         b.setUserid("abc123");
         b.setTitle("test");
         b.setContents("testtest");
-        b.setIpaddr("test");
+        b.setIpaddr("127.0.0.1");
         int result = boardMapper.insertBoard(b);
         System.out.println(result);
         assertEquals(result,1);
@@ -53,4 +53,24 @@ public class BoardMapperUnitTest {
         assertNotNull(result);
         System.out.println(result);
     }
+    @Test
+    @DisplayName("BoardMapper delete Test")
+    @Transactional
+    void deleteBoard(){
+        String bno ="1";
+        int result = boardMapper.deleteBoard(bno);
+        System.out.println(result);
+        assertEquals(result,1);
+    }
+
+    @Test
+    @DisplayName("BoardMapper updateViews Test")
+    @Transactional
+    void updateBoardViews(){
+        String bno="1297";
+        int result = boardMapper.updateViewBoard(bno);
+        System.out.println(result);
+        assertEquals(result,1);
+    }
+
 }
