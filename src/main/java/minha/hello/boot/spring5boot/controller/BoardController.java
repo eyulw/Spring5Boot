@@ -22,7 +22,7 @@ public class BoardController {
     public String list(Model m, @PathVariable Integer cpg){
         m.addAttribute("bds",bsrv.readBoard(cpg));
         m.addAttribute("psnum",10*((cpg-1)/10)+1);
-        m.addAttribute("allpg",bsrv.getCountPages());
+        m.addAttribute("cntpg",bsrv.getCountPages());
         m.addAttribute("cpg",cpg);
         logger.info("board/list 호출");
         return "board/list";
