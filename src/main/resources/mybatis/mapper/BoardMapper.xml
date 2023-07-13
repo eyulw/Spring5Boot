@@ -13,6 +13,12 @@
         select * from board2 where bno=#{bno}
     </select>
     <select id="countPages" resultType="Integer">
-        select ceil(count(userid)/25) from board2;
+        select ceil(count(userid)/25) from board2
     </select>
+    <delete id="deleteBoard">
+        delete from board2 where bno=#{bno}
+    </delete>
+    <update id="updateViewBoard">
+        update board2 set views = views + 1 where bno=#{bno}
+    </update>
 </mapper>
