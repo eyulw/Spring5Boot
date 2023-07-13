@@ -35,6 +35,14 @@ public class BoardControllerUnitTest {
     }
 
     @Test
+    @DisplayName("BoardController findBoard Test")
+    public void findBoard() throws Exception {
+        mvc.perform(get("/board/find/1/title/아"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
     @DisplayName("BoardController view Test")
     public void view() throws Exception {
         mvc.perform(get("/board/view/1"))
