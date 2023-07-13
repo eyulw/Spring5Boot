@@ -13,7 +13,7 @@
         select * from board2 where bno=#{bno}
     </select>
     <select id="countPages" resultType="Integer">
-        select ceil(count(userid)/25) from board2
+        select ceil(count(bno)/25) cntpg from board2
     </select>
     <delete id="deleteBoard">
         delete from board2 where bno=#{bno}
