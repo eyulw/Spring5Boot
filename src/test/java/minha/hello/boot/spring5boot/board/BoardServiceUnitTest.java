@@ -1,13 +1,9 @@
 package minha.hello.boot.spring5boot.board;
 
 import minha.hello.boot.spring5boot.dao.BoardDAOImpl;
-import minha.hello.boot.spring5boot.dao.MemberDAOImpl;
 import minha.hello.boot.spring5boot.model.Board;
-import minha.hello.boot.spring5boot.model.Member;
 import minha.hello.boot.spring5boot.service.BoardService;
 import minha.hello.boot.spring5boot.service.BoardServiceImpl;
-import minha.hello.boot.spring5boot.service.MemberService;
-import minha.hello.boot.spring5boot.service.MemberServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -38,7 +34,7 @@ public class BoardServiceUnitTest {
         b.setUserid("abc123");
         b.setTitle("test");
         b.setContents("testtest");
-        b.setIpaddr("test");
+        b.setIpaddr("127.0.0.1");
         boolean result = bsrv.saveBoard(b);
         System.out.println(result);
         assertEquals(result,true);
@@ -62,4 +58,13 @@ public class BoardServiceUnitTest {
         System.out.println(result);
     }
 
+    @Test
+    @DisplayName("BoardService remove Test")
+    @Transactional
+    void removeBoard(){
+        String bno="1";
+        boolean result = bsrv.removeBoard(bno);
+        System.out.println(result);
+        assertEquals(result,true);
+    }
 }
