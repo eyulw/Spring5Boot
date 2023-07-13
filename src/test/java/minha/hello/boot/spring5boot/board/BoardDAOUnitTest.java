@@ -2,11 +2,7 @@ package minha.hello.boot.spring5boot.board;
 
 import minha.hello.boot.spring5boot.dao.BoardDAO;
 import minha.hello.boot.spring5boot.dao.BoardDAOImpl;
-import minha.hello.boot.spring5boot.dao.MemberDAO;
-import minha.hello.boot.spring5boot.dao.MemberDAOImpl;
 import minha.hello.boot.spring5boot.model.Board;
-import minha.hello.boot.spring5boot.model.Member;
-import minha.hello.boot.spring5boot.mybatis.BoardMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -37,7 +33,7 @@ public class BoardDAOUnitTest {
         b.setUserid("abc123");
         b.setTitle("test");
         b.setContents("testtest");
-        b.setIpaddr("test");
+        b.setIpaddr("127.0.0.1");
         int result = bdao.insertBoard(b);
         System.out.println(result);
         assertEquals(result,1);
@@ -61,4 +57,15 @@ public class BoardDAOUnitTest {
         assertNotNull(result);
         System.out.println(result);
     }
+
+    @Test
+    @DisplayName("BoardDAO delete Test")
+    @Transactional
+    void deleteBoard(){
+        String bno ="1";
+        int result = bdao.deleteBoard(bno);
+        System.out.println(result);
+        assertEquals(result,1);
+    }
+
 }
