@@ -8,6 +8,6 @@ public interface BoardDAO {
     int insertBoard(Board b);
     List<Board> selectBoard(int stnum);
     Board selectOneBoard(String bno);
-
     int countPages();
+    int deleteBoard(String bno);
 }
