@@ -20,10 +20,17 @@ public class BoardController {
     final BoardService bsrv;
     @GetMapping("/list/{cpg}")
     public String list(Model m, @PathVariable Integer cpg){
+        int cntpg =bsrv.getCountPages();
         m.addAttribute("bds",bsrv.readBoard(cpg));
         m.addAttribute("psnum",10*((cpg-1)/10)+1);
-        m.addAttribute("cntpg",bsrv.getCountPages());
+        m.addAttribute("cntpg",cntpg);
         m.addAttribute("cpg",cpg);
+        //만일, cpg가 cntpg보다 크다면
+        //1페이지로 강제 이동
+        /* if(cpg > (int)m.getAttribute("cntpg")) */
+        if(cpg > cntpg)
+            return "redirect:/board/list/1";
+
         logger.info("board/list 호출");
         return "board/list";
     }
