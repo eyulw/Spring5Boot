@@ -79,10 +79,13 @@
                         <!--(현재 페이지-1)이 0보다 크면 '이전'링크 활성-->
                         <li th:class="${(cpg - 1) gt 0?'page-item':'page-item disabled'}" ><a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a></li>
 
-                        <th:block th:each="i : ${#numbers.sequence(psnum, (psnum+9 < cntpg ? psnum+9 : cntpg))}">
+                        <th:block th:each="i : ${#numbers.sequence(psnum, psnum+9)}">
+                            <!--출력 페이지 i 총페이지수 cntpg보다 작거나 같으면 출력-->
+                            <th:block th:if="${i le cntpg}">
 <!--                            <li th:class="${#strings.endsWith(#request.getRequestURI(),i) ? 'page-item active':'page-item'}">-->
-                            <li th:class="${ i ne cpg ? 'page-item':'page-item active'}">
-                                <a th:href="|${pglink}${i}|" class="page-link" th:text="${i}"></a>
+                                <li th:class="${ i ne cpg ? 'page-item':'page-item active'}">
+                                    <a th:href="|${pglink}${i}|" class="page-link" th:text="${i}"></a>
+                            </th:block>
                             </li>
                         </th:block>
                         <!--(현재 페이지+1)이 cntpg보다 작거나같으면 '다음'링크 활성-->
