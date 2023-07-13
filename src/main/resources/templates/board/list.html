@@ -73,7 +73,7 @@
                 <nav>
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><a th:href="|/board/list/1|" class="page-link">처음</a></li>
-                        <li class="page-item"><a href="#" class="page-link">이전</a></li>
+                        <li class="page-item"><a th:href="|/board/list/${(cpg - 1)>0?(cpg - 1):1}|" class="page-link">이전</a></li>
 
                         <th:block th:each="i : ${#numbers.sequence(psnum, (psnum+9 < allpg ? psnum+9 : allpg))}">
 <!--                            <li th:class="${#strings.endsWith(#request.getRequestURI(),i) ? 'page-item active':'page-item'}">-->
@@ -81,7 +81,7 @@
                                 <a th:href="|/board/list/${i}|" class="page-link" th:text="${i}"></a>
                             </li>
                         </th:block>
-                        <li class="page-item"><a href="#" class="page-link">다음</a></li>
+                        <li class="page-item"><a th:href="|/board/list/${(cpg + 1)>allpg?(cpg + 1):allpg}|" class="page-link">다음</a></li>
                         <li class="page-item"><a th:href="|/board/list/${allpg}|" class="page-link">끝</a></li>
                     </ul>
                 </nav>
