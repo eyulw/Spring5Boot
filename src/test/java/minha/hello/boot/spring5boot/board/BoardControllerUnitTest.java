@@ -27,9 +27,9 @@ public class BoardControllerUnitTest {
     @Test
     @DisplayName("BoardController list Test")
     public void listTest() throws Exception {
-        mvc.perform(get("/board/list")
+        mvc.perform(get("/board/list/1")
                         .param("cpg","1"))
-                        .andExpect(model().attributeExists("allpg"))
+                        .andExpect(model().attributeExists("cntpg"))
                         .andExpect(status().isOk())
                         .andDo(print());
     }
