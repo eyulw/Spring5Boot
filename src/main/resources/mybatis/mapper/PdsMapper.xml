@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="minha.hello.boot.spring5boot.mybatis.PdsMapper">
+    <insert id="insertPds" parameterType="Pds">
+        insert into pds(userid,title,contents,ipaddr) values (#{userid},#{title},#{contents},#{ipaddr});
+    </insert>
+    <select id="lastPdsPno">
+        <!--select AUTO_INCREMENT - 1 pno from information_schema.TABLES where TABLE_NAME = 'pds';-->
+        select last_insert_id() from pds;
+    </select>
+   <!-- <select id="selectPds" resultType="Pds">
+        select bno,title,userid,regdate,thumbs,views from Pds2 order by bno desc limit #{stnum},25
+    </select>
+    <select id="selectOnePds" resultType="Pds">
+        select * from Pds2 where bno=#{bno}
+    </select>
+    <select id="countPages" resultType="Integer">
+        select ceil(count(bno)/25) cntpg from Pds2
+    </select>
+    <delete id="deletePds">
+        delete from Pds2 where bno=#{bno}
+    </delete>
+    <update id="updateViewPds">
+        update Pds2 set views = views + 1 where bno=#{bno}
+    </update>
+    &lt;!&ndash;동적질의문으로 검색 기능 구현&ndash;&gt;
+    &lt;!&ndash;단, 컬럼명이나 테이블명에는 #{}가 아닌 ${}를 사용!&ndash;&gt;
+    <select id="selectFindPds" parameterType="map" resultType="Pds">
+        select bno,title,userid,regdate,thumbs,views from Pds2
+        <if test="findtype != 'titcont'">
+            where ${findtype} like concat('%',#{findkey},'%')
+        </if>
+        <if test="findtype == 'titcont'">
+            where title like concat('%',#{findkey},'%') or contents like concat('%',#{findkey},'%')
+        </if>
+        order by bno desc limit #{stnum},25
+    </select>
+
+    &lt;!&ndash;동적질의문으로 검색 기능 구현2&ndash;&gt;
+    <select id="countFindPds" parameterType="map">
+        select ceil(count(bno)/25) cntfpg from Pds2
+        <if test="findtype != 'titcont'">
+            where ${findtype} like concat('%',#{findkey},'%')
+        </if>
+        <if test="findtype == 'titcont'">
+            where title like concat('%',#{findkey},'%') or contents like concat('%',#{findkey},'%')
+        </if>
+    </select>-->
+</mapper>
