@@ -3,7 +3,7 @@
     xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
     layout:decorate="~{layout/template}">
 <th:block layout:fragment="content">
-    <div id="main" th:with="pglink='/board/list/'">
+    <div id="main" th:with="pglink=${(#strings.isEmpty(fkey))?'/board/list/':'/board/find/'+ftype+'/'+fkey+'/'}">
         <div class="mt-5">
             <i class="fa-solid fa-pen-to-square fa-2xl"> 게시판</i>
             <hr>
@@ -11,7 +11,7 @@
 
         <div class="row mt-5 mb-3">
             <div class="row offset-1 col-7">
-                <div class="col-2">
+                <div class="col-3">
                     <!--작업할때 쓰는 값이랑 화면에 보이는 값이 다를땐 value선언해줘야함-->
                     <select class="form-select" id="findtype">
                         <option value="title">제목</option>
