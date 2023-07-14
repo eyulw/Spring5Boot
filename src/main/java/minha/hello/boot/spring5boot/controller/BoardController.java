@@ -66,13 +66,21 @@ public class BoardController {
         return returnPage;
     }
 
+//    @GetMapping("/modify/{bno}")
+//    public String modify(Model m,@PathVariable String bno){
+//        logger.info("board/modify 호출");
+//        m.addAttribute("bd",bsrv.readOneBoard(bno));
+//        return "board/modify";
+//    }
 
-    @GetMapping("/find/{cpg}/{findtype}/{findkey}")
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
     public String find(Model m, @PathVariable Integer cpg,@PathVariable String findtype, @PathVariable String findkey){
         m.addAttribute("bds",bsrv.readFindBoard(cpg,findtype,findkey));
         m.addAttribute("psnum",10*((cpg-1)/10)+1);
-        m.addAttribute("cntpg",bsrv.getCountPages());
+        m.addAttribute("cntpg",bsrv.countFindPages(findtype,findkey));
         m.addAttribute("cpg",cpg);
+        m.addAttribute("fkey",findkey); //검색어
+        m.addAttribute("ftype",findtype); //검색종류
         //만일, cpg가 cntpg보다 크다면
         //1페이지로 강제 이동
         if(cpg>(int)m.getAttribute("cntpg"))
