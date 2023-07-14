@@ -8,8 +8,11 @@
     </insert>
     <select id="lastPdsPno">
         <!--select AUTO_INCREMENT - 1 pno from information_schema.TABLES where TABLE_NAME = 'pds';-->
-        select last_insert_id() from pds;
+        select last_insert_id() from pds limit 1,1
     </select>
+    <insert id="insertPdsAttach" parameterType="PdsAttach">
+        insert into pdsattach(pno,fname,ftype,fsize) values (#{pno},#{fname},#{ftype},#{fsize})
+    </insert>
    <!-- <select id="selectPds" resultType="Pds">
         select bno,title,userid,regdate,thumbs,views from Pds2 order by bno desc limit #{stnum},25
     </select>
