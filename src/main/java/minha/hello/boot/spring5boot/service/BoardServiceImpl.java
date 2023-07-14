@@ -56,4 +56,12 @@ public class BoardServiceImpl implements BoardService{
         params.put("stnum",25*(cpg-1));
         return bdao.selectFindBoard(params);
     }
+
+    @Override
+    public int countFindPages(String ftype, String fkey) {
+        Map<String, Object> params=new HashMap<>();
+        params.put("findtype",ftype);
+        params.put("findkey",fkey);
+        return bdao.countFindBoard(params);
+    }
 }
