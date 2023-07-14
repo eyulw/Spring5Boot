@@ -86,4 +86,14 @@ public class BoardServiceUnitTest {
         assertNotNull(results);
         System.out.println(results);
     }
+
+    @Test
+    @DisplayName("BoardService countFindPages Test")
+    void countFindPages(){
+        String ftype="title";
+        String fkey="아";
+        int result = bsrv.countFindPages(ftype,fkey);
+        assertNotNull(result);
+        System.out.println(result);
+    }
 }
