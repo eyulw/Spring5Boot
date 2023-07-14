@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+    xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/template}">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/project.css"/>
+</head>
+<th:block layout:fragment="content">
+    <div id="main">
+        <div class="mt-5">
+            <i class="fa-solid fa-database fa-2xl"> 자료실</i>
+            <hr>
+        </div>
+
+        <div class="row mt-5 mb-3">
+            <div class="row offset-1 col-5">
+                <button type="button" class="btn btn-light col-3" id="prepds">
+                    <i class="fa fa-chevron-left"></i> 이전게시글
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-light col-3" id="nextpds">
+                    다음게시글 <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="col-5 text-end">
+                <button type="button" class="btn btn-light col-3" id="newpdsbtn">
+                    <i class="fa fa-plus-circle"></i> 새글쓰기
+                </button>
+            </div>
+        </div><!--버튼들-->
+
+        <div class="row offset-1 col-10">
+            <table>
+                <tr>
+                    <th class="vtit" colspan="2" th:text="${p.title}">제목</th>
+                </tr>
+                <tr class="vinfo">
+                    <td th:text="${p.userid}">작성자</td>
+                    <td class="text-end" th:text="|${p.regdate} / ${p.thumbs} / ${p.views}|">작성일/추천/조회</td>
+                </tr>
+                <tr>
+                    <td class="vcont" colspan="2" th:text="${p.contents}">본문글</td>
+                </tr>
+            </table>
+        </div><!--본문글-->
+
+        <div class="row mt-3 mb-5">
+            <div class="row offset-1 col-5">
+                <button type="button" class="btn btn-warning col-3" id="modpdsbtn">
+                    <i class="fa fa-pencil"></i> 수정하기
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-danger col-3" id="rmvpdsbtn">
+                    <i class="fa fa-trash-o"></i> 삭제하기
+                </button>
+                <input type="hidden" id="delpno" th:value="${p.pno}">
+            </div>
+            <div class="col-5 text-end">
+                <button type="button" class="btn btn-light col-3" id="lstpdsbtn">
+                    <i class="fa fa-list"></i> 목록으로
+                </button>
+            </div>
+        </div><!--버튼들-->
+    </div>
+    <script src="/assets/js/pds.js" charset="utf-8"></script>
+</th:block>
+</html>

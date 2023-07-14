@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+    xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div id="main">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <div class="mt-5">
+            <i class="fa-solid fa-database fa-2xl"> 자료실</i>
+            <hr>
+        </div>
+
+        <div class="row mt-5 mb-3">
+            <div class="row offset-1 col-5">
+                <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>
+            </div>
+            <div class="col-5 text-end">
+                <button type="button" class="btn btn-light col-3" id="lstpdsbtn">
+                    <i class="fa fa-list"></i> 목록으로
+                </button>
+            </div>
+        </div><!--버튼들-->
+            <div class="row offset-1 col-10 mb-5">
+                <form name="pdsfrm" id="pdsfrm" class="card card-body bg-light">
+                    <div class="row mt-3">
+                        <label for="title" class="col-3 col-form-label text-danger text-end">제목</label>
+                        <div class="col-6">
+                            <input type="text" name="title" id="title" class="form-control border-danger">
+                        </div>
+                    </div><!--제목-->
+                    <div class="row mt-3">
+                        <label for="userid" class="col-3 col-form-label text-danger text-end">작성자</label>
+                        <div class="col-6">
+                            <input type="text" name="userid" id="userid" class="form-control border-danger" readonly th:value="abc123">
+                        </div>
+                    </div><!--작성자-->
+                    <div class="row mt-3">
+                        <label for="contents" class="col-3 col-form-label text-danger text-end">본문</label>
+                        <div class="col-6">
+                            <textarea rows="15" name="contents" id="contents" class="form-control border-danger"></textarea>
+                        </div>
+                    </div><!--본문-->
+                    <div class="row mt-3">
+                        <label for="attach" class="col-3 col-form-label text-danger text-end">첨부파일</label>
+                        <div class="col-6">
+                            <input type="file" name="attach" id="attach" class="form-control border-danger bg-light"></textarea>
+                        </div>
+                    </div><!--첨부-->
+                    <div class="row mt-3">
+                        <label for="g-recaptcha" class="col-3 col-form-label text-danger text-end">자동쓰기방지</label>
+                        <div class="col-6">
+                            <div class="g-recaptcha" data-sitekey="6LfOW-EmAAAAAFUOkrrZ-UN-gfM1bVOiEkhkRjXB"></div>
+                            <input type="hidden" name="grecaptcha" id="g-recaptcha">
+                        </div>
+                    </div><!--captcha-->
+                    <div class="row mt-4 mb-3">
+                        <hr class="w-75 mx-auto">
+                        <div class="text-center">
+                            <button type="button" id="wrtpdsbtn" class="btn btn-primary">
+                                <i class="fa-regular fa-circle-check"></i> 입력완료
+                            </button>
+                            <button type="button" id="cancelbtn4" class="btn btn-danger">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                                취소하기
+                            </button>
+                        </div>
+                    </div><!--버튼들-->
+                    <input type="hidden" name="ipaddr" id="ipaddr" th:value="${#request.getRemoteAddr()}">
+                </form>
+            </div><!--새글쓰기 폼-->
+    </div>
+    <script src="/assets/js/pds.js" charset="utf-8"></script>
+</th:block>
+</html>
