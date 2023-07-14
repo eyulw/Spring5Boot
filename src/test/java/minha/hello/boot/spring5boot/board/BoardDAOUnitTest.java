@@ -90,4 +90,15 @@ public class BoardDAOUnitTest {
         System.out.println(results);
     }
 
+    @Test
+    @DisplayName("BoardDAO countFindBoard Test")
+    void countFindBoard(){
+        Map<String, Object> params=new HashMap<>();
+        params.put("findtype","titcont");
+        params.put("findkey","개발");
+        int result = bdao.countFindBoard(params);
+        assertNotNull(result);
+        System.out.println(result);
+    }
+
 }
