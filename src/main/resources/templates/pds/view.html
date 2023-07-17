@@ -41,9 +41,14 @@
                 <tr>
                     <td class="vcont" colspan="2" th:text="${p.contents}">본문글</td>
                 </tr>
+                <tr>
+                    <td class="vinfo" colspan="2">
+                        <a th:href="|/pds/down/${p.pno}|" th:text="${p.pa.fname}">파일명</a>
+                        <span th:text="|${p.pa.fsize} KB/${p.pa.fdown}회 다운로드|">파일정보</span>
+                    </td>
+                </tr>
             </table>
         </div><!--본문글-->
-
         <div class="row mt-3 mb-5">
             <div class="row offset-1 col-5">
                 <button type="button" class="btn btn-warning col-3" id="modpdsbtn">
