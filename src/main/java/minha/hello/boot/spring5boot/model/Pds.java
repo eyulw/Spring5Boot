@@ -16,4 +16,6 @@ public class Pds {
     private String views;
     private String contents;
     private String ipaddr;
+
+    private PdsAttach pa;
 }
