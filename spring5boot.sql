@@ -73,3 +73,13 @@ alter table pds add constraint fkpuid foreign key (userid) references member2(us
 
 alter table pdsattach add constraint fkpno foreign key (pno) references pds(pno);
 
+/*join*/
+select * from pds p join pdsattach pa
+                         using(pno) where p.pno='6';
+
+/*view (가상테이블)*/
+create view ppa
+as select * from pds p join pdsattach pa
+                            using(pno);
+
+select * from ppa where pno='6';
