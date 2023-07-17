@@ -8,7 +8,7 @@ import minha.hello.boot.spring5boot.utils.PdsUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Map;
+import java.util.List;
 
 @Service("psrv")
 @RequiredArgsConstructor
@@ -29,6 +29,23 @@ public class PdsServiceImpl implements PdsService{
 //        첨부파일 정보를 디비에 저장
         int pacnt=pdao.insertPdsAttach(pa);
         return (pacnt > 0)? true:false;
+    }
+
+    @Override
+    public List<Pds> readPds(Integer cpg) {
+        int stnum=25*(cpg-1);
+        return pdao.selectPds(stnum);
+    }
+
+    @Override
+    public int getCountPages() {
+        return pdao.countPages();
+    }
+
+    @Override
+    public Pds readOnePds(String pno) {
+        return pdao.selectOnePds(pno);
+
     }
 
 }
