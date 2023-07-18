@@ -5,6 +5,10 @@ import minha.hello.boot.spring5boot.model.Pds;
 import minha.hello.boot.spring5boot.service.PdsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
+
 
 @RequestMapping("/pds")
 @Controller
@@ -60,5 +67,15 @@ public class PdsController {
         m.addAttribute("p",psrv.readOnePds(pno));
         logger.info("pds/view 호출");
         return "pds/view";
+    }
+
+    @GetMapping("/down/{pno}")
+    public ResponseEntity<Resource> down(@PathVariable String pno){
+        logger.info("pds/down 호출");
+        /*업로드한 파일에 대한 파일명 알아냄*/
+        String fname = psrv.readOnePdsAttach(pno);
+        /*알아낸 파일명을 이용해서 헤더와 리소스 객체 생성*/
+        Map<String,Object> objs=psrv.getHeaderResource(fname);
+        return ResponseEntity.ok().headers((HttpHeaders) objs.get("header")).body((UrlResource)objs.get("resource"));
     }
 }
