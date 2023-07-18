@@ -13,4 +13,6 @@ public interface PdsDAO {
     List<Pds> selectPds(int stnum);
     int countPages();
     Pds selectOnePds(String pno);
+
+    PdsAttach selectOnePdsAttach(String pno);
 }
