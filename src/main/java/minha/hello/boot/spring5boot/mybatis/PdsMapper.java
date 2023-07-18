@@ -5,7 +5,6 @@ import minha.hello.boot.spring5boot.model.PdsAttach;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface PdsMapper {
@@ -18,6 +17,7 @@ public interface PdsMapper {
     List<Pds> selectPds(int stnum);
     Pds selectOnePds(String pno);
     int countPages();
+    PdsAttach selectOnePdsAttach(String pno);
 //    int deletePds(String bno);
 //    int updateViewPds(String bno);
 //    List<Pds> selectFindPds(Map<String,Object> params);

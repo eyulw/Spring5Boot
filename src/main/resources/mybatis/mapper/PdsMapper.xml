@@ -44,6 +44,9 @@
     <select id="countPages" resultType="Integer">
         select ceil(count(pno)/25) cntpg from pds
     </select>
+    <select id="selectOnePdsAttach" resultType="PdsAttach">
+        select * from pdsattach where pno=#{pno}
+    </select>
     <!--     <delete id="deletePds">
          delete from Pds2 where bno=#{bno}
      </delete>

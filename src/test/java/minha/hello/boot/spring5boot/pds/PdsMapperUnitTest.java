@@ -2,6 +2,7 @@ package minha.hello.boot.spring5boot.pds;
 
 import minha.hello.boot.spring5boot.model.Board;
 import minha.hello.boot.spring5boot.model.Pds;
+import minha.hello.boot.spring5boot.model.PdsAttach;
 import minha.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,4 +35,14 @@ public class PdsMapperUnitTest {
         System.out.println(result);
         assertNotNull(result);
     }
+
+    @Test
+    @DisplayName("PdsMapper selectOnePA Test")
+    void selectOnePA() {
+        String pno ="7";
+        PdsAttach result = pdsMapper.selectOnePdsAttach(pno);
+        System.out.println(result);
+        assertNotNull(result);
+    }
+
 }
