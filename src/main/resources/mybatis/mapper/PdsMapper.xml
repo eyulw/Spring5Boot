@@ -47,6 +47,12 @@
     <select id="selectOnePdsAttach" resultType="PdsAttach">
         select * from pdsattach where pno=#{pno}
     </select>
+    <insert id="insertPdsComment" parameterType="PdsComment">
+        insert into pdscomments(userid,comments,ref,pno) values (#{userid},#{comments},#{ref},#{pno})
+    </insert>
+    <select id="selectPdsComment" parameterType="PdsComment">
+        select * from pdscomments where pno=#{pno} order by ref
+    </select>
     <!--     <delete id="deletePds">
          delete from Pds2 where bno=#{bno}
      </delete>
