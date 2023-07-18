@@ -66,6 +66,50 @@
                 </button>
             </div>
         </div><!--버튼들-->
+        <div class="my-5">
+            <i class="fa-solid fa-comments fa-2xl"> 나도 한마디</i>
+        </div>
+        <div class="row offset-1 col-10">
+            <table class="table tbborder">
+                <tr>
+                    <td style="width: 25%">
+                        <h4>minha</h4>
+                    </td>
+                    <td>
+                        <div class="cmtbg">2023-12-12 12:12:12
+                            <span style="float: right">[추가] / [수정] / [삭제]</span>
+                        </div>
+                        <p class="py-3">댓글댓글</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 25%">
+                        <h4>&nbsp;</h4>
+                    </td>
+                    <td>
+                        <div class="rpybg">
+                            eyulw
+                            <span style="float: right">2023-12-12 12:12:12</span>
+                        </div>
+                        <p class="py-3">리플리플리플</p>
+                    </td>
+                </tr>
+            </table>
+        </div><!--댓글목록-->
+        <div class="row offset-1 col-10 my-3">
+            <form name="cmtfrm" id="cmtfrm" class="bg-light p-3">
+                <div class="row align-items-center">
+                    <label class="col-2 form-label text-end">로그인하세요</label>
+                    <div class="col-8">
+                        <textarea id="commts" name="commts" rows="7" class="form-control"></textarea>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-secondary" id="newcmtbtn">
+                            <i class="fa fa-commenting"></i> 댓글쓰기</button>
+                    </div>
+                </div>
+            </form>
+        </div><!--댓글작성폼-->
     </div>
     <script src="/assets/js/pds.js" charset="utf-8"></script>
 </th:block>
