@@ -48,6 +48,9 @@
         select * from pdsattach where pno=#{pno}
     </select>
     <insert id="insertPdsComment" parameterType="PdsComment">
+        insert into pdscomments(userid,comments,ref,pno) values (#{userid},#{comments},last_insert_id()+1,#{pno})
+    </insert>
+    <insert id="insertPdsReply" parameterType="PdsComment">
         insert into pdscomments(userid,comments,ref,pno) values (#{userid},#{comments},#{ref},#{pno})
     </insert>
     <select id="selectPdsComment" parameterType="PdsComment">

@@ -22,6 +22,8 @@ public interface PdsMapper {
     int insertPdsComment(PdsComment pc);
     List<PdsComment> selectPdsComment(String pno);
 
+    int insertPdsReply(PdsComment pc);
+
 //    int deletePds(String bno);
 //    int updateViewPds(String bno);
 //    List<Pds> selectFindPds(Map<String,Object> params);
