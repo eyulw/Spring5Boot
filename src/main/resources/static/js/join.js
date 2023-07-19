@@ -20,8 +20,10 @@ noagree?.addEventListener('click',()=>{
 /* checkme */
 let checkbtn2 = document.querySelector("#checkbtn2");
 let cancelbtn2=document.querySelector("#cancelbtn2");
-let checkfrm=document.forms.checkfrm2;
+
 checkbtn2?.addEventListener('click',()=>{
+    let checkfrm=document.forms.checkfrm2;
+
     if(checkfrm.name2.value===''){
         alert("이름을 입력하세요");
     }else if(checkfrm.jumin1.value===''){
@@ -206,32 +208,4 @@ go2idx?.addEventListener('click',()=>{
     location.href="/";
 })
 
-//login
 
-let loginbtn=document.querySelector("#loginbtn");
-let lguid=document.querySelector("#userid");
-let lgpwd=document.querySelector("#passwd");
-let lgnfrm=document.querySelector("#lgnfrm");
-
-loginbtn?.addEventListener('click',()=>{
-    if(lguid.value===''){
-        alert("아이디를 입력하세요");
-    }else if(lgpwd.value===''){
-        alert("비밀번호를 입력하세요");
-    }else{
-        lgnfrm.method='post';
-        lgnfrm.action='/join/login';
-        lgnfrm.submit();
-    }
-})
-
-//logout
-let lgoutbtn = document.querySelector("#lgoutbtn");
-lgoutbtn?.addEventListener('click',()=>{
-    location.href='/join/logout';
-})
-
-let joinBtn=document.querySelector("#joinBtn");
-joinBtn?.addEventListener('click',()=>{
-    location.href="/join/agree";
-});
