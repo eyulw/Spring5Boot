@@ -2,6 +2,7 @@ package minha.hello.boot.spring5boot.dao;
 
 import minha.hello.boot.spring5boot.model.Pds;
 import minha.hello.boot.spring5boot.model.PdsAttach;
+import minha.hello.boot.spring5boot.model.PdsComment;
 import minha.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,5 +43,20 @@ public class PdsDAOImpl implements PdsDAO{
     @Override
     public PdsAttach selectOnePdsAttach(String pno) {
         return pdsMapper.selectOnePdsAttach(pno);
+    }
+
+    @Override
+    public int insertPdsComment(PdsComment pc) {
+        return pdsMapper.insertPdsComment(pc);
+    }
+
+    @Override
+    public List<PdsComment> selectPdsComment(String pno) {
+        return pdsMapper.selectPdsComment(pno);
+    }
+
+    @Override
+    public int insertPdsReply(PdsComment pc) {
+        return pdsMapper.insertPdsReply(pc);
     }
 }
