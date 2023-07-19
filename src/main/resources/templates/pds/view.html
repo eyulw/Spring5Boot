@@ -5,7 +5,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../static/css/project.css"/>
 </head>
-<th:block layout:fragment="content">
+<th:block layout:fragment="content" th:with="isLogined=${(#strings.isEmpty(session.member))? false : true}">
     <div id="main">
         <div class="mt-5">
             <i class="fa-solid fa-database fa-2xl"> 자료실</i>
@@ -71,46 +71,78 @@
         </div>
         <div class="row offset-1 col-10">
             <table class="table tbborder">
-                <tr>
-                    <td style="width: 25%">
-                        <h4>minha</h4>
-                    </td>
-                    <td>
-                        <div class="cmtbg">2023-12-12 12:12:12
-                            <span style="float: right">[추가] / [수정] / [삭제]</span>
-                        </div>
-                        <p class="py-3">댓글댓글</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 25%">
-                        <h4>&nbsp;</h4>
-                    </td>
-                    <td>
-                        <div class="rpybg">
-                            eyulw
-                            <span style="float: right">2023-12-12 12:12:12</span>
-                        </div>
-                        <p class="py-3">리플리플리플</p>
-                    </td>
-                </tr>
+                <th:block th:each="pc:${pcs}">
+                    <th:block th:if="${pc.cno eq pc.ref}">
+                        <tr>
+                        <td style="width: 25%">
+                            <h4 th:text="${pc.userid}">minha</h4>
+                        </td>
+                        <td>
+                            <div class="cmtbg">[[${pc.regdate}]]
+                                <span style="float: right">
+                                    <a th:href="|javascript:showReply(${pc.cno})|">[추가]</a> / [수정] / [삭제]
+                                </span>
+                            </div>
+                            <p class="py-3" th:text="${pc.comments}">댓글댓글</p>
+                        </td>
+                    </tr><!--comment-->
+                    </th:block>
+                    <th:block th:if="${pc.cno ne pc.ref}">
+                        <tr>
+                            <td style="width: 25%">
+                                <h4>&nbsp;</h4>
+                            </td>
+                            <td>
+                                <div class="rpybg">
+                                    [[${pc.userid}]]
+                                    <span style="float: right">[[${pc.regdate}]]</span>
+                                </div>
+                                <p class="py-3" th:text="${pc.comments}">리플리플리플</p>
+                            </td>
+                        </tr><!--reply-->
+                    </th:block>
+                </th:block>
             </table>
         </div><!--댓글목록-->
         <div class="row offset-1 col-10 my-3">
             <form name="cmtfrm" id="cmtfrm" class="bg-light p-3">
                 <div class="row align-items-center">
-                    <label class="col-2 form-label text-end">로그인하세요</label>
+                    <label class="col-2 form-label text-end"  th:text="${(isLogined)?session.member.userid:'로그인하세요'}">로그인하세요</label>
                     <div class="col-8">
-                        <textarea id="commts" name="commts" rows="7" class="form-control"></textarea>
+                        <textarea id="comments" name="comments" rows="7" class="form-control"></textarea>
                     </div>
                     <div class="col-2">
                         <button type="button" class="btn btn-secondary" id="newcmtbtn">
-                            <i class="fa fa-commenting"></i> 댓글쓰기</button>
+                            <i class="fa fa-commenting"></i> 댓글쓰기
+                        </button>
                     </div>
                 </div>
+                <input type="hidden" name="userid" id="userid" th:value="${(isLogined)?session.member.userid:'none'}">
+                <input type="hidden" name="pno" id="pno" th:value="${p.pno}">
             </form>
         </div><!--댓글작성폼-->
     </div>
+    <div class="modal hide" id="replyModal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">대댓글 쓰기</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="replyfrm" class="well form-inline">
+                        <textarea name="comments" id="reply" rows="8" cols="60" class="span4"></textarea>
+                        <input type="hidden" name="userid" th:value="${(isLogined)?session.member.userid:'none'}">
+                        <input type="hidden" name="pno" th:value="${p.pno}">
+                        <input type="hidden" name="ref" id="ref">
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" id="replybtn"
+                            class="btn btn-danger">대댓글 작성</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- 대댓글 입력 폼 -->
     <script src="/assets/js/pds.js" charset="utf-8"></script>
 </th:block>
 </html>
