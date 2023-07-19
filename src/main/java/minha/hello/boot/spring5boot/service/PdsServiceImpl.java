@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import minha.hello.boot.spring5boot.dao.PdsDAO;
 import minha.hello.boot.spring5boot.model.Pds;
 import minha.hello.boot.spring5boot.model.PdsAttach;
+import minha.hello.boot.spring5boot.model.PdsComment;
 import minha.hello.boot.spring5boot.utils.PdsUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -65,6 +66,21 @@ public class PdsServiceImpl implements PdsService{
         objs.put("resource",pdsUtils.getResource(fname));
 
         return objs;
+    }
+
+    @Override
+    public boolean newPdsComment(PdsComment pc) {
+        return (pdao.insertPdsComment(pc)>0) ? true : false;
+    }
+
+    @Override
+    public List<PdsComment> readPdsComment(String pno) {
+        return pdao.selectPdsComment(pno);
+    }
+
+    @Override
+    public boolean newPdsReply(PdsComment pc) {
+        return (pdao.insertPdsReply(pc)>0) ? true : false;
     }
 
 }
