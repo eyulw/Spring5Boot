@@ -54,7 +54,7 @@ public class PdsControllerUnitTest {
     @Test
     @DisplayName("PdsController view Test")
     public void view() throws Exception {
-        mvc.perform(get("/pds/view/6"))
+        mvc.perform(get("/pds/view/7"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
