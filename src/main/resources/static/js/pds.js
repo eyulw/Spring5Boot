@@ -60,3 +60,39 @@ findbtn?.addEventListener('click',()=>{
    }
 });
 
+//pds comment
+let cmtbtn=document.querySelector("#newcmtbtn");
+
+cmtbtn?.addEventListener('click',()=>{
+    let frm=document.forms.cmtfrm;
+    if(frm.userid.value === '') alert("로그인 하세요");
+    else if(frm.pno.value==='') alert("로그인 하세요");
+    else if(frm.comments.value==='')alert("댓글을 작성하세요");
+    else{
+        frm.method='post';
+        frm.action='/pds/cmt/write'
+        frm.submit();
+    }
+})
+
+//pds reply
+let modal = null;
+const refno = document.querySelector("#ref");
+const showReply=(ref)=>{
+    refno.value = ref;
+    modal=new bootstrap.Modal(replyModal,{});
+    modal.show();
+}
+const replybtn = document.querySelector("#replybtn");
+const frm = document.querySelector("#replyfrm");
+replybtn?.addEventListener('click',()=>{
+    if(frm.comments.value==='') alert('대댓글을 작성하세요');
+    else if(frm.ref.value==='') alert('댓글번호가 없어요.');
+    else if(frm.pno.value==='') alert('본문글번호가 없어요.');
+    else{
+        frm.method='post';
+        frm.action='/pds/reply/write';
+        frm.submit();
+    }
+})
+
