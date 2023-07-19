@@ -2,6 +2,7 @@ package minha.hello.boot.spring5boot.controller;
 
 import lombok.RequiredArgsConstructor;
 import minha.hello.boot.spring5boot.model.Pds;
+import minha.hello.boot.spring5boot.model.PdsComment;
 import minha.hello.boot.spring5boot.service.PdsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -64,9 +65,33 @@ public class PdsController {
 
     @GetMapping("/view/{pno}")
     public String view(Model m, @PathVariable String pno){
-        m.addAttribute("p",psrv.readOnePds(pno));
+        m.addAttribute("p",psrv.readOnePds(pno));   //본문글
+        m.addAttribute("pcs",psrv.readPdsComment(pno));  //댓글, 대댓글
         logger.info("pds/view 호출");
         return "pds/view";
+    }
+
+    @PostMapping("/cmt/write")
+    public String cmtwriteok(PdsComment pc){
+        logger.info("pds/cmt/write 호출");
+        String returnPage="redirect:/pds/fail";
+        /*작성한 댓글을 댓글에 저장*/
+        if(psrv.newPdsComment(pc)){
+            /*작성한 댓글을 확인하기 위해 바로 본문 출력*/
+            returnPage="redirect:/pds/view/"+pc.getPno();
+        }
+        return returnPage;
+    }
+    @PostMapping("/reply/write")
+    public String rpywriteok(PdsComment pc){
+        logger.info("pds/reply/write 호출");
+        String returnPage="redirect:/pds/fail";
+        /*작성한 대댓글을 테이블에 저장*/
+        if(psrv.newPdsReply(pc)){
+            /*작성한 대댓글을 확인하기 위해 바로 본문 출력*/
+            returnPage="redirect:/pds/view/"+pc.getPno();
+        }
+        return returnPage;
     }
 
     @GetMapping("/down/{pno}")
