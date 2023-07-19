@@ -3,6 +3,7 @@ package minha.hello.boot.spring5boot.pds;
 import minha.hello.boot.spring5boot.model.Board;
 import minha.hello.boot.spring5boot.model.Pds;
 import minha.hello.boot.spring5boot.model.PdsAttach;
+import minha.hello.boot.spring5boot.model.PdsComment;
 import minha.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @MybatisTest
@@ -36,12 +38,23 @@ public class PdsMapperUnitTest {
         assertNotNull(result);
     }
 
+
     @Test
-    @DisplayName("PdsMapper selectOnePA Test")
-    void selectOnePA() {
+    @DisplayName("PdsMapper selectPC Test")
+    void selectPdsComments() {
         String pno ="7";
-        PdsAttach result = pdsMapper.selectOnePdsAttach(pno);
-        System.out.println(result);
+        List<PdsComment> results = pdsMapper.selectPdsComment(pno);
+        assertNotNull(results);
+    }
+    @Test
+    @DisplayName("PdsMapper newcomment Test")
+//    @Transactional
+    void newcomment() {
+        PdsComment pc = new PdsComment();
+        pc.setUserid("abc123");
+        pc.setComments("test");
+        pc.setPno("7");
+        int result = pdsMapper.insertPdsComment(pc);
         assertNotNull(result);
     }
 
