@@ -65,6 +65,12 @@
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>3.2.0</version>
         </dependency>
+        <!--image thumbnail-->
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+        </dependency>
 
     </dependencies>
 
