@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="minha.hello.boot.spring5boot.mybatis.GalleryMapper">
+    <!-- join result -->
+    <resultMap id="ga" type="GalAttach">
+        <result column="fname" property="fname" />
+        <result column="fsize" property="fsize" />
+    </resultMap>
+
+    <resultMap id="gga" type="Gallery">
+        <result column="gno" property="gno"/>
+        <result column="title" property="title"/>
+        <result column="userid" property="userid"/>
+        <result column="regdate" property="regdate"/>
+        <result column="thumbs" property="thumbs"/>
+        <result column="views" property="views"/>
+        <result column="contents" property="contents"/>
+        <result column="ipaddr" property="ipaddr"/>
+
+        <!--property : model Gal에 정의된 pa, resultMap은 위에 pa-->
+        <collection property="ga" resultMap="ga"/>
+    </resultMap>
+
+    <insert id="insertGallery" parameterType="Gallery">
+        insert into gallery(userid,title,contents,ipaddr) values (#{userid},#{title},#{contents},#{ipaddr});
+    </insert>
+    <insert id="insertGalAttach" parameterType="GalAttach">
+        insert into galattach(gno,fname,fsize) values (#{gno},#{fname},#{fsize})
+    </insert>
+    <select id="selectGallery" resultType="Gallery">
+        select gno,title,userid,regdate,thumbs,views from gallery order by gno desc limit #{stnum},25
+    </select>
+    <select id="selectOneGallery" resultMap="gga">
+        select * from gga where gno=#{gno}
+    </select>
+    <select id="selectCountGallery">
+        select ceil(count(gno)/25) cntpg from gallery
+    </select>
+
+    <!--<insert id="insertGalComment" parameterType="GalComment">
+        insert into Galcomments(userid,comments,ref,pno) values (#{userid},#{comments},last_insert_id()+1,#{pno})
+    </insert>
+    <insert id="insertGalReply" parameterType="GalComment">
+        insert into Galcomments(userid,comments,ref,pno) values (#{userid},#{comments},#{ref},#{pno})
+    </insert>
+    <select id="selectGalComment" parameterType="GalComment">
+        select * from Galcomments where pno=#{pno} order by ref
+    </select>-->
+    <!--     <delete id="deleteGal">
+         delete from Gal2 where bno=#{bno}
+     </delete>
+     <update id="updateViewGal">
+         update Gal2 set views = views + 1 where bno=#{bno}
+     </update>
+     &lt;!&ndash;동적질의문으로 검색 기능 구현&ndash;&gt;
+     &lt;!&ndash;단, 컬럼명이나 테이블명에는 #{}가 아닌 ${}를 사용!&ndash;&gt;
+     <select id="selectFindGal" parameterType="map" resultType="Gal">
+         select bno,title,userid,regdate,thumbs,views from Gal2
+         <if test="findtype != 'titcont'">
+             where ${findtype} like concat('%',#{findkey},'%')
+         </if>
+         <if test="findtype == 'titcont'">
+             where title like concat('%',#{findkey},'%') or contents like concat('%',#{findkey},'%')
+         </if>
+         order by bno desc limit #{stnum},25
+     </select>
+
+     &lt;!&ndash;동적질의문으로 검색 기능 구현2&ndash;&gt;
+     <select id="countFindGal" parameterType="map">
+         select ceil(count(bno)/25) cntfpg from Gal2
+         <if test="findtype != 'titcont'">
+             where ${findtype} like concat('%',#{findkey},'%')
+         </if>
+         <if test="findtype == 'titcont'">
+             where title like concat('%',#{findkey},'%') or contents like concat('%',#{findkey},'%')
+         </if>
+     </select>-->
+</mapper>
