@@ -26,7 +26,7 @@ public class GalleryController {
     @GetMapping("/list/{cpg}")
     public String list(Model m,@PathVariable Integer cpg){
         logger.info("gallery/list 호출");
-        m.addAttribute("gal",gsrv.readGallery(cpg));
+        m.addAttribute("gals",gsrv.readGallery(cpg));
         m.addAttribute("psnum",10*((cpg-1)/10)+1);
         m.addAttribute("cntpg",gsrv.countGallery());
         m.addAttribute("cpg",cpg);
