@@ -28,4 +28,9 @@ public class GalleryDAOImpl implements GalleryDAO{
     public int insertGalAttach(GalAttach ga) {
         return galleryMapper.insertGalAttach(ga);
     }
+
+    @Override
+    public Gallery selectOneGallery(String gno) {
+        return galleryMapper.selectOneGallery(gno);
+    }
 }
