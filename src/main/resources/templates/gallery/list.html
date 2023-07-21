@@ -35,204 +35,23 @@
             </div><!--검색 및 새글쓰기-->
 
             <div class="row justify-content-center mb-4">
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="http://localhost/cdn/cute.jpg" class="card-img-top" alt="..."/></a>
+                <div th:each="gal:${gals}"
+                        class="card col-10 card" style="width: 18rem">
+                    <a th:href="|/gallery/view/${gal.gno}|">
+                        <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(gal.ga.fname,';')[0]}|" class="card-img-top" alt="..."/>
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
+                        <h5 class="card-title" th:text="${gal.title}">갤러리 제목</h5>
                         <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
+                            <span th:text="${gal.userid}">작성자</span>
+                            <span style="float: right" th:text="${gal.regdate}">2023-07-20</span>
                         </p>
                         <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
+                            <span><i class="fa-regular fa-thumbs-up"></i> [[${gal.thumbs}]]</span><!--추천수-->
+                            <span style="float:right;"><i class="fa-regular fa-eye"></i> [[${gal.views}]]</span><!--조회수-->
                         </p>
                     </div>
                 </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-10 card" style="width: 18rem">
-                    <a href="#"><img src="/assets/img/cute.jpg" class="card-img-top" alt="..."/></a>
-                    <div class="card-body">
-                        <h5 class="card-title">갤러리 제목</h5>
-                        <p>
-                            <span>작성자</span>
-                            <span style="float: right">2023-07-20</span>
-                        </p>
-                        <p>
-                            <span><i class="fa-regular fa-thumbs-up"></i>123</span><!--추천수-->
-                            <span style="float:right;"><i class="fa-regular fa-eye"></i>456</span><!--조회수-->
-                        </p>
-                    </div>
-                </div>
-
-
             </div><!-- 갤러리 이미지 리스트-->
         </div>
     </div>
