@@ -133,6 +133,19 @@ alter table gallery add constraint fkguid foreign key (userid) references member
 
 alter table galattach add constraint fkgno foreign key (gno) references gallery(gno);
 
+/*view (가상테이블)*/
+create view gga
+as select * from gallery g join galattach ga
+                            using(gno);
+
+select * from gga;
+
+select * from gga;
+
+create view gga0
+as
+select gno,title,userid,substring(regdate,1,10) regdate,thumbs,views,fname from gallery g join galattach ga using(gno);
+
 /*
         gno			fname		         fsize
         1		abc123.png;87xyz.jpg	  100; 456
