@@ -5,7 +5,7 @@
 <th:block layout:fragment="content">
     <div id="main">
         <div class="mt-5">
-            <i class="fa-solid fa-image fa-2xl"> 갤러리</i>
+            <i class="fa-regular fa-image fa-2xl"> 갤러리</i>
             <hr>
             <div class="row mt-5 mb-3">
                 <div class="row offset-1 col-7">
@@ -28,7 +28,9 @@
                     </div>
                 </div>
                 <div class="col-3 text-end">
-                    <button type="button" class="btn btn-light" id="newgalbtn"><i class="fa fa-plus-circle"></i> 새글쓰기</button>
+                    <button type="button" class="btn btn-light col-3" id="newgalbtn">
+                        <i class="fa fa-plus-circle"></i> 새글쓰기
+                    </button>
                 </div>
             </div><!--검색 및 새글쓰기-->
 
@@ -234,5 +236,6 @@
             </div><!-- 갤러리 이미지 리스트-->
         </div>
     </div>
+    <script src="/assets/js/gallery.js" charset="utf-8"></script>
 </th:block>
 </html>
