@@ -42,15 +42,16 @@
                     <td class="vcont" colspan="2">
                         <p th:text="${g.contents}">본문글</p>
                         <th:block th:each="img : ${#strings.arraySplit(g.ga.fname,';')}">
-                            <img th:src="|http://localhost/cdn/${img}|">
+                            <img class="img-fluid" th:src="|http://localhost/cdn/${img}|">
                         </th:block>
                     </td>
                 </tr>
                 <tr>
                     <td class="vinfo" colspan="2"
                             th:with="fsizes=${#strings.arraySplit(g.ga.fsize,';')}">
-                        <th:block th:each=" f : ${fsizes}">
-                            <span th:text="|${f}KB|"></span>
+                        <!--stat : arraySplit으로 나눠진 상태정보를 알수있음, stat 사용법 __${stat.~}__-->
+                        <th:block th:each=" fn,stat : ${#strings.arraySplit(g.ga.fname,';')}">
+                            <span th:text="|${fn} (${fsizes[__${stat.index}__]}KB) |"></span><br>
                         </th:block>
                     </td>
                 </tr>
